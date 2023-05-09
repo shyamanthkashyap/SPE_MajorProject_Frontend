@@ -6,7 +6,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 var user = JSON.parse(localStorage.getItem("user"));
-var id = user.id;
+var id = null;
+
+if(user){
+	id=user.id;
+}
 
 const AnswerPost = (props) => {
 	const navigate = useNavigate();

@@ -7,7 +7,6 @@ var user = JSON.parse(localStorage.getItem("user"));
 var config = null;
 
 if (user && user.accessToken) {
-    console.log("answeeeeeeeeerrrrrrrr"+user.accessToken);
     config = {
       headers: {
         // "ngrok-skip-browser-warning": "true",

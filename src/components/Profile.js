@@ -6,7 +6,11 @@ import UserService from "../service/UserService";
 import { useNavigate } from "react-router-dom";
 
 var user = JSON.parse(localStorage.getItem("user"));
-var id = user.id;
+var id = null;
+
+if(user){
+	id=user.id;
+}
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -20,6 +24,7 @@ const Profile = () => {
 			setLoading(true);
 			try {
 				const response = await UserService.userProfile();
+				console.log(response)
                 setUsr(response.data.data);
                 setTask(response.data.data.profile);
 
