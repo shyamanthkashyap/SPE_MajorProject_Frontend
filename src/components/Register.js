@@ -16,11 +16,7 @@ const Register = () => {
 		const formData = new FormData(e.target);
         console.log(cityid);
 
-<<<<<<< HEAD
-		fetch("http://localhost:8080/api/auth/user/signup", {
-=======
 		fetch("http://localhost:8000/api/user/register", {
->>>>>>> cd33f7221c5d165e7f9b61a41bf049ec14853731
 			method: "POST",
 			headers: {
 				Accept: "application/json",
