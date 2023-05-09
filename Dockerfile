@@ -13,11 +13,11 @@ COPY package*.json ./
 # Install the dependencies mentioned in package.json
 RUN npm install
 
-# Run the written testcases
-RUN npm run test
-
 # Copy the local files to the "app" folder
 COPY . .
+
+# Run the written testcases
+RUN npm run test
 
 # Expose port 3000 on the host machine to the container for listening to external connections
 EXPOSE 3000
