@@ -16,7 +16,7 @@ const AnswerPost = (props) => {
 	};
 
 	const handleLike = (answer) => {
-		fetch(`http://${process.env.PROXYURL}:8000/api/answer/like/${id}`, {
+		fetch(`http://localhost:8000/api/answer/like/${id}`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const CATEGORY_BASE_URL = `http://${process.env.PROXYURL}:8000/api/category/`
+const CATEGORY_BASE_URL = `http://localhost:8000/api/category/`
 
 var user = JSON.parse(localStorage.getItem("user"));
 var config = null;

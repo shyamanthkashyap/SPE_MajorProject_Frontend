@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ANSWER_BASE_URL = `http://${process.env.PROXYURL}:8000/api/answer/`
+const ANSWER_BASE_URL = `http://localhost:8000/api/answer/`
 
 // var id = localStorage.getItem("id");
 var user = JSON.parse(localStorage.getItem("user"));

@@ -19,8 +19,5 @@ COPY . .
 # Expose port 3000 on the host machine to the container for listening to external connections
 EXPOSE 3000
 
-# Set the base url
-ENV PROXYAPI=$PROXYAPI
-
 # Start the React applications
 CMD ["npm", "start"]
