@@ -4,7 +4,8 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 import { Link, useNavigate } from "react-router-dom";
 
 function App() {
-    const navigate = useNavigate();
+    
+	const navigate = useNavigate();
 
 	const onSubmit = (e) => {
 		e.preventDefault();
