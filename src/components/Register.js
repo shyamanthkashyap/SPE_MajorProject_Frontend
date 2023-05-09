@@ -22,11 +22,11 @@ const Register = () => {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({
-            
+			body: JSON.stringify({            
 				username: formData.get("userId"),
 				pwd: formData.get("password"),
                 locationId: cityid,
+				email: formData.get("email")
 			}),
 		})
 			.then((response) => response.json())
@@ -58,7 +58,7 @@ const Register = () => {
                                 </h4>
 								<div>
 									<label htmlFor="userId-address" className="sr-only">
-										userId address
+										Username
 									</label>
 									<input
 										id="userId-address"
@@ -67,7 +67,26 @@ const Register = () => {
 										autoComplete="userId"
 										required
 										className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-										placeholder="userId address"
+										placeholder="Username"
+									/>
+								</div>
+                            </div>
+							<div className="shadow-sm -space-y-px overflow-hidden">
+                                <h4 className="my-2">
+                                    Email Address
+                                </h4>
+								<div>
+									<label htmlFor="userId-address" className="sr-only">
+										Email Address
+									</label>
+									<input
+										id="email"
+										name="email"
+										type="email"
+										autoComplete="email"
+										required
+										className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+										placeholder="Email Address"
 									/>
 								</div>
                             </div>
