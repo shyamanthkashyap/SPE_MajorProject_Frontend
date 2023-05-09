@@ -16,7 +16,7 @@ const Register = () => {
 		const formData = new FormData(e.target);
         console.log(cityid);
 
-		fetch("http://qa-backend:8000/api/auth/user/signup", {
+		fetch(`http://${process.env.PROXYURL}:8000/api/auth/user/signup`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
