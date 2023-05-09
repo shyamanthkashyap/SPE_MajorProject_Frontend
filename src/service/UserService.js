@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const USER_BASE_URL = "http://localhost:8080/api/user/"
+const USER_BASE_URL = "http://localhost:8000/api/user/"
 
 var id = localStorage.getItem("id");
 

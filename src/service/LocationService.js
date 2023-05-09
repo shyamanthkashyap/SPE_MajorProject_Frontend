@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const LOCATION_BASE_URL = "http://localhost:8080/api/location/"
+const LOCATION_BASE_URL = "http://localhost:8000/api/location/"
 
 class LocationService{
     listStates(cty){
