@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-// import Post from "./Post";
+import Post from "./Post";
 import QuestionService from "../service/QuestionService";
 import PostQuestion from "./PostQuestion";
 
 export const Home = () => {
-	const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [questions, setQuestions] = useState();
 
-	useEffect(() => {
-        const fetchData = async ()=>{
+    useEffect(() => {
+        const fetchData = async () => {
             setLoading(true);
             try {
                 const response = await QuestionService.listAll();
@@ -19,17 +19,17 @@ export const Home = () => {
             }
             setLoading(false);
         }
-        fetchData();  
-		
-	}, []);
+        fetchData();
 
-	return (
-		<div >
-			<NavBar key="uniquevalue"/>
-            {/* <PostQuestion></PostQuestion>
-			{!loading && (<Post questions = {questions}/>)} */}
-		</div>
-	);
+    }, []);
+
+    return (
+        <div >
+            <NavBar key="uniquevalue" />
+            <PostQuestion></PostQuestion>
+            {!loading && (<Post questions={questions} />)}
+        </div>
+    );
 };
 
 export default Home;

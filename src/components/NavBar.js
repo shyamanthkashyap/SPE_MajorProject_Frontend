@@ -66,7 +66,7 @@ const NavBar = () => {
 		const getCategory = async () => {
 			try {
 				const getres = await CategoryService.listMainCategory();
-				console.log("@@@@@@@@"+getres.data.data);
+				console.log("@@@@@@@@" + getres.data.data);
 				setMaincategory(await getres.data.data);
 			} catch (error) {
 				console.log(error);
@@ -192,7 +192,7 @@ const NavBar = () => {
 										</Menu.Items>
 									</Transition>
 								</Menu>
-								
+
 							</div>
 
 							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -221,7 +221,7 @@ const NavBar = () => {
 											<Menu.Item>
 												{({ active }) => (
 													<Link
-														to={{pathname: `/profile`}}
+														to={{ pathname: `/profile` }}
 														className={classNames(
 															active ? "bg-indigo-100" : "",
 															"block px-4 py-2 text-sm text-indigo-700"
@@ -234,7 +234,7 @@ const NavBar = () => {
 											<Menu.Item>
 												{({ active }) => (
 													<Link
-                                                        onClick={() => UserService.signOut()}
+														onClick={() => UserService.signOut()}
 														to={{ pathname: `/` }}
 														className={classNames(
 															active ? "bg-indigo-100" : "",
