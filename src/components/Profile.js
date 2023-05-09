@@ -5,7 +5,8 @@ import Editable from "./Editable";
 import UserService from "../service/UserService";
 import { useNavigate } from "react-router-dom";
 
-var id = localStorage.getItem("id");
+var user = JSON.parse(localStorage.getItem("user"));
+var id = user.id;
 
 const Profile = () => {
     const navigate = useNavigate();

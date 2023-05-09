@@ -16,7 +16,7 @@ const Register = () => {
 		const formData = new FormData(e.target);
         console.log(cityid);
 
-		fetch("http://localhost:8080/api/user/register", {
+		fetch("http://localhost:8080/api/auth/user/signup", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
@@ -24,16 +24,19 @@ const Register = () => {
 			},
 			body: JSON.stringify({            
 				username: formData.get("userId"),
-				pwd: formData.get("password"),
+				password: formData.get("password"),
                 locationId: cityid,
 				email: formData.get("email")
 			}),
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
-				if (data.code === 200) {
-					navigate("/home");
+				console.log(data.message);
+				if (data.message === "User registered successfully!") {
+					navigate("/login");
+				}
+				else{
+					console.log("Error while registering!!!")
 				}
 			})
 			.catch((err) => err);

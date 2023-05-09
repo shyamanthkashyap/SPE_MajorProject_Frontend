@@ -5,7 +5,8 @@ import AnswerService from "../service/AnswerService";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-var id = localStorage.getItem("id");
+var user = JSON.parse(localStorage.getItem("user"));
+var id = user.id;
 
 const AnswerPost = (props) => {
 	const navigate = useNavigate();

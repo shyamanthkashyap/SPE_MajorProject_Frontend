@@ -11,22 +11,26 @@ function App() {
 
 		const formData = new FormData(e.target);
 
-		fetch("api/user/login", {
+		fetch("api/auth/user/signin", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				userId: formData.get("userId"),
-				pwd: formData.get("password"),
+				username: formData.get("username"),
+				password: formData.get("password"),
 			}),
 		})
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				if (data.code === 200) {
-					localStorage.setItem('id', formData.get("userId"));
+				console.log(data.status)
+				if (data.status === 401 || data.status === 404 || data.status === 500 || data.status === 400) {
+					console.log("Error while logging in")
+				}
+				else{
+					localStorage.setItem('user', JSON.stringify(data));
 					navigate("/home");
 				}
 			})
@@ -56,16 +60,16 @@ function App() {
 						<div className="rounded-md shadow-sm -space-y-px">
 							<div>
 								<label htmlFor="userId-address" className="sr-only">
-									UserId address
+									Username
 								</label>
 								<input
-									id="userId-address"
-									name="userId"
-									type="userId"
-									autoComplete="userId"
+									id="username"
+									name="username"
+									type="username"
+									autoComplete="username"
 									required
 									className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-									placeholder="User ID"
+									placeholder="Username"
 								/>
 							</div>
 							<div>

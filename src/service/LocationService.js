@@ -2,17 +2,35 @@ import axios from "axios";
 
 const LOCATION_BASE_URL = "http://localhost:8080/api/location/"
 
+var user = JSON.parse(localStorage.getItem("user"));
+var config = null;
+
+if (user && user.accessToken) {
+    console.log("locationnssssssssssss"+user.accessToken);
+    config = {
+      headers: {
+        // "ngrok-skip-browser-warning": "true",
+        "Access-Control-Allow-Origin": '*',
+        "Access-Control-Allow-Headers": "X-Requested-With",
+        Authorization: "Bearer " + user.accessToken,
+      },
+    };
+  }
+
 class LocationService{
     listStates(cty){
-        return axios.get(LOCATION_BASE_URL+`state/${cty}`);
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(LOCATION_BASE_URL+`state/${cty}`,config);
     }
 
     listCtys(){
-        return axios.get(LOCATION_BASE_URL+`country/`);
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(LOCATION_BASE_URL+`country/`,config);
     }
 
     listCities(cty, st){
-        return axios.get(LOCATION_BASE_URL+`city/${cty}/${st}`);
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(LOCATION_BASE_URL+`city/${cty}/${st}`,config);
     }
 }
 

@@ -2,27 +2,46 @@ import axios from "axios";
 
 const QUESTION_BASE_URL = "http://localhost:8080/api/question/"
 
-var id = localStorage.getItem("id");
+// var id = localStorage.getItem("id");
+var user = JSON.parse(localStorage.getItem("user"));
+var config = null;
+
+if (user && user.accessToken) {
+    console.log("quessssssssssss"+user.accessToken);
+    config = {
+      headers: {
+        // "ngrok-skip-browser-warning": "true",
+        "Access-Control-Allow-Origin": '*',
+        "Access-Control-Allow-Headers": "X-Requested-With",
+        Authorization: "Bearer " + user.accessToken,
+      },
+    };
+  }
 
 class QuestionService{
     listAll(){
-        return axios.get(QUESTION_BASE_URL+"listAll");
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(QUESTION_BASE_URL+"listAll", config);
     }
 
     listOne(id){
-        return axios.get(QUESTION_BASE_URL+`list/${id}`);
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(QUESTION_BASE_URL+`list/${id}`,config);
     }
 
     ListCategoryQuestions(ctgyId){
-        return axios.get(QUESTION_BASE_URL+`listCategory/${ctgyId}`);
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(QUESTION_BASE_URL+`listCategory/${ctgyId}`,config);
     }
 
     ListSubCategoryQuestions(ctgyId){
-        return axios.get(QUESTION_BASE_URL+`listSubCategory/${ctgyId}`);
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(QUESTION_BASE_URL+`listSubCategory/${ctgyId}`,config);
     }
 
     ListMyQuestions(){
-        return axios.get(QUESTION_BASE_URL+`listMyQuestion/${id}`);
+        new Promise(resolve => setTimeout(resolve, 1000));
+        return axios.get(QUESTION_BASE_URL+`listMyQuestion/${user.id}`,config);
     }
 
 }
