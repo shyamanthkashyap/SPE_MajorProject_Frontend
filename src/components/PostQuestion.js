@@ -2,14 +2,9 @@ import React, { useState, useEffect } from "react";
 import CaDrop from "./CaDrop";
 import { Link, useNavigate } from "react-router-dom";
 
-var user = JSON.parse(localStorage.getItem("user"));
-var id = null;
-
-if(user){
-	id=user.id;
-}
-
 const PostQuestion = () => {
+	var user = JSON.parse(localStorage.getItem("user"));
+	var id = user.id;
 	const navigate = useNavigate();
 	const [categoryId, setCategoryId] = useState("");
 	const [ctgy, setCtgy] = useState();
