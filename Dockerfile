@@ -13,6 +13,9 @@ COPY package*.json ./
 # Install the dependencies mentioned in package.json
 RUN npm install
 
+# Run the written testcases
+RUN npm run test
+
 # Copy the local files to the "app" folder
 COPY . .
 
