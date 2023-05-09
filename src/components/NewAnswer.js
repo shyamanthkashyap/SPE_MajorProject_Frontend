@@ -15,7 +15,7 @@ const NewAnswer = (props) => {
 
 		const formData = new FormData(e.target);
 
-		fetch(`http://localhost:8000/api/answer/post/${id}`, {
+		fetch(`http://qa-backend:8000/api/answer/post/${id}`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",

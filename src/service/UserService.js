@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const USER_BASE_URL = "http://localhost:8000/api/user/"
+const USER_BASE_URL = "http://qa-backend:8000/api/user/"
 
 //var id = localStorage.getItem("id");
 var user = JSON.parse(localStorage.getItem("user"));
