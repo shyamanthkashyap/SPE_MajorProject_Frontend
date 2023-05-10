@@ -6,7 +6,6 @@ var user = JSON.parse(localStorage.getItem("user"));
 var config = null;
 
 if (user && user.accessToken) {
-    console.log("quessssssssssss"+user.accessToken);
     config = {
       headers: {
         "Access-Control-Allow-Origin": '*',

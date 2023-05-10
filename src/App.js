@@ -7,6 +7,8 @@ function App() {
     
 	const navigate = useNavigate();
 
+	var userdata=null;
+
 	const onSubmit = (e) => {
 		e.preventDefault();
 
@@ -25,14 +27,14 @@ function App() {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
-				console.log(data.status)
+				userdata=data;
 				if (data.status === 401 || data.status === 404 || data.status === 500 || data.status === 400) {
 					console.log("Error while logging in")
 				}
 				else{
-					localStorage.setItem('user', JSON.stringify(data));
+					localStorage.setItem('user', JSON.stringify(userdata));
 					navigate("/home");
+					window.location.reload();
 				}
 			})
 			.catch((err) => err);

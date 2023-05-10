@@ -2,12 +2,11 @@ import axios from "axios";
 
 const USER_BASE_URL = `http://localhost:8000/api/user/`
 
-//var id = localStorage.getItem("id");
 var user = JSON.parse(localStorage.getItem("user"));
 var config = null;
 
+
 if (user && user.accessToken) {
-    console.log("userrrrrrrrrrrrrrrrrrrrr"+user.accessToken);
     config = {
       headers: {
         // "ngrok-skip-browser-warning": "true",
@@ -20,8 +19,9 @@ if (user && user.accessToken) {
 
 class UserService{
     signOut(){
-        localStorage.clear();
-        return axios.get(USER_BASE_URL+`signOut/`);
+        var id = user.id;
+        localStorage.removeItem('user');
+        return axios.get(`http://localhost:8000/api/auth/user/signout/${id}`,config);
     }
 
     userProfile(){
