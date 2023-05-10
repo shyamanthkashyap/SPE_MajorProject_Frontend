@@ -33,13 +33,13 @@ const Profile = () => {
 
 	const onClick = (e) => {
 		e.preventDefault();
-
+		console.log(user1.accessToken)
 		fetch(`http://localhost:8000/api/user/updateProfile/${id}`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
-				Authorization: "Bearer " + user.accessToken,
+				Authorization: "Bearer " + user1.accessToken,
 			},
 			body: `${task}`,
 		})
