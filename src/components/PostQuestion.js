@@ -15,7 +15,7 @@ const PostQuestion = () => {
 
 		const formData = new FormData(e.target);
 
-		fetch(`http://192.168.5.6:8000/api/question/post/${id}`, {
+		fetch(`http://localhost:8000/api/question/post/${id}`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
