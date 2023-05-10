@@ -16,7 +16,7 @@ const AnswerPost = (props) => {
 	};
 
 	const handleLike = (answer) => {
-		fetch(`http://192.168.10.6:8000/api/answer/like/${id}`, {
+		fetch(`http://192.168.11.6:8000/api/answer/like/${id}`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
