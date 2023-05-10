@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const LOCATION_BASE_URL = `http://qa-backend:8000/api/location/`
+const LOCATION_BASE_URL = `http://localhost:8000/api/location/`
 
 var user = JSON.parse(localStorage.getItem("user"));
 var config = null;
