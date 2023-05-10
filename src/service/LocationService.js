@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const LOCATION_BASE_URL = `http://localhost:8000/api/location/`
+const LOCATION_BASE_URL = `http://172.18.0.20:8000/api/location/`
 
 var user = JSON.parse(localStorage.getItem("user"));
 var config = null;
