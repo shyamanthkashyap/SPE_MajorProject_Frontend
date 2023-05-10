@@ -12,7 +12,7 @@ function App() {
 
 		const formData = new FormData(e.target);
 
-		fetch("api/auth/user/signin", {
+		fetch("http://localhost:8000/api/auth/user/signin", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",

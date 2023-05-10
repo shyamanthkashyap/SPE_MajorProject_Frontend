@@ -2,7 +2,6 @@ import axios from "axios";
 
 const QUESTION_BASE_URL = `http://localhost:8000/api/question/`
 
-// var id = localStorage.getItem("id");
 var user = JSON.parse(localStorage.getItem("user"));
 var config = null;
 
@@ -10,7 +9,6 @@ if (user && user.accessToken) {
     console.log("quessssssssssss"+user.accessToken);
     config = {
       headers: {
-        // "ngrok-skip-browser-warning": "true",
         "Access-Control-Allow-Origin": '*',
         "Access-Control-Allow-Headers": "X-Requested-With",
         Authorization: "Bearer " + user.accessToken,

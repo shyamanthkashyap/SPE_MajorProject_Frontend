@@ -9,7 +9,6 @@ if (user && user.accessToken) {
     console.log("locationnssssssssssss"+user.accessToken);
     config = {
       headers: {
-        // "ngrok-skip-browser-warning": "true",
         "Access-Control-Allow-Origin": '*',
         "Access-Control-Allow-Headers": "X-Requested-With",
         Authorization: "Bearer " + user.accessToken,

@@ -39,6 +39,7 @@ const Profile = () => {
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
+				Authorization: "Bearer " + user.accessToken,
 			},
 			body: `${task}`,
 		})

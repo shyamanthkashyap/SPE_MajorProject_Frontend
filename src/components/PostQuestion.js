@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const PostQuestion = () => {
 	var user = JSON.parse(localStorage.getItem("user"));
 	var id = user.id;
+
 	const navigate = useNavigate();
 	const [categoryId, setCategoryId] = useState("");
 	const [ctgy, setCtgy] = useState();
@@ -14,11 +15,12 @@ const PostQuestion = () => {
 
 		const formData = new FormData(e.target);
 
-		fetch(`api/question/post/${id}`, {
+		fetch(`http://localhost:8000/api/question/post/${id}`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
+				Authorization: "Bearer " + user.accessToken,
 			},
 			body: JSON.stringify({
 				title: formData.get("title"),
