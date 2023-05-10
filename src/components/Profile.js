@@ -34,7 +34,7 @@ const Profile = () => {
 	const onClick = (e) => {
 		e.preventDefault();
 
-		fetch(`http://192.168.11.6:8000/api/user/updateProfile/${id}`, {
+		fetch(`http://192.168.5.6:8000/api/user/updateProfile/${id}`, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",

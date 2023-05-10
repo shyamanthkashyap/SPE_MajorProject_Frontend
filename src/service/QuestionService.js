@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const QUESTION_BASE_URL = `http://192.168.11.6:8000/api/question/`
+const QUESTION_BASE_URL = `http://192.168.5.6:8000/api/question/`
 
 var user = JSON.parse(localStorage.getItem("user"));
 var config = null;
