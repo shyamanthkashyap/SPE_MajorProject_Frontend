@@ -26,6 +26,10 @@ class QuestionService{
         return axios.get(QUESTION_BASE_URL+`list/${id}`,config);
     }
 
+    ListRelatedQuestions(text){
+        return axios.get(QUESTION_BASE_URL+`listRelated/${text}`,config);
+    }
+
     ListCategoryQuestions(ctgyId){
         new Promise(resolve => setTimeout(resolve, 1000));
         return axios.get(QUESTION_BASE_URL+`listCategory/${ctgyId}`,config);

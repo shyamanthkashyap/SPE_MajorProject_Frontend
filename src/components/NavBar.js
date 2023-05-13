@@ -1,16 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
+import { divideColor } from "tailwindcss/defaultTheme";
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
+	SearchIcon,
+	BellIcon,
 	MenuIcon,
 	XIcon,
 } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
-import logo from "../pics/iiitblogo1.png";
-import avator from "../pics/avatar.png";
+import axios from "axios";
+import QuestionService from "../service/QuestionService";
 import CategoryService from "../service/CategoryService";
 import UserService from "../service/UserService";
+import logo from "../pics/iiitblogo1.png";
+import avator from "../pics/avatar.png";
+
 
 const navigation = [
 	{ name: "Dashboard", href: "/home", current: false },
@@ -55,6 +61,24 @@ const NavBar = () => {
 			document.removeEventListener("mousedown", clickOutside);
 		};
 	}, [user]);
+
+	useEffect(() => {
+		const loadResp = async () => {
+			// console.log(text);
+			try {
+				const response = await QuestionService.ListRelatedQuestions(text);
+				// console.log(response);
+				setRes(response.data.data);
+				// console.log(res);}
+			} catch (error) {
+                if(error.response.data.code){
+                    navigate('/');
+                };
+				console.log(error);
+			}
+		};
+		loadResp();
+	}, [text]);
 
 	console.log(res);
 
@@ -192,7 +216,58 @@ const NavBar = () => {
 										</Menu.Items>
 									</Transition>
 								</Menu>
+								<div className="flex relative">
+									<div
+										className="containder flex-col align-top absolute z-10"
+										ref={node}
+										onClick={() => setShowText(user)}
+									>
+										<input
+											onChange={(e) => onChangeHandler(e.target.value)}
+											value={text}
+											type="text"
+											className="rounded-lg ml-10 py-2 text-sm font-medium h-9 w-60 bg-purple-100 focus:bg-purple-50 focus:border-purple-500 border-purple-300 focus:outline-none border-2"
+										></input>
+										{res && user && (
+											<div className="ml-10 rounded-lg overflow-clip">
+												{res.map((ress) => {
+													{
+														console.log(ress);
+													}
 
+													return (
+														<div className="text-center bg-purple-50 text-purple-500 overflow-hidden">
+															<div className="rounded-lg hover:ring-2 hover:ring-pink-300 hover:ring-inset py-1">
+																<NavLink
+																	target="_blank"
+																	to={{ pathname: `/list/${ress.questionId}` }}
+																	className="h-full"
+																>
+																	{ress.title}
+																</NavLink>
+															</div>
+														</div>
+													);
+												})}
+											</div>
+										)}
+									</div>
+
+									<span className="align-middle absolute left-60 z-20">
+										<div className="flex container">
+											<Link
+												target="_blank"
+												to={{ pathname: `/listRelated/${text}` }}
+												className="pl-2 w-6 h-9 text-purple-400 hover:text-purple-500"
+											>
+												<SearchIcon
+													className="pt-2 w-6 h-7"
+													aria-hidden="true"
+												/>
+											</Link>
+										</div>
+									</span>
+								</div>
 							</div>
 
 							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

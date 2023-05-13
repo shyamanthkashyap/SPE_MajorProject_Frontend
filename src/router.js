@@ -9,6 +9,7 @@ import SubCategoryQuestionResult from "./components/SubCategoryQuestionResult";
 import MyAnswer from "./components/MyAnswer";
 import MyQuestion from "./components/MyQuestion";
 import Profile from "./components/Profile";
+import SearchResult from "./components/SearchResult";
 
 export default function IRouter() {
 	return (
@@ -19,6 +20,7 @@ export default function IRouter() {
 				<Route exact path="/home" element={<Home />}></Route>
                 <Route exact path="/register" element={<Register />}></Route>
 				<Route exact path="/list/:id" element={<Answer />} ></Route>
+				<Route exact path="/listRelated/:text" element={<SearchResult />} ></Route>
                 <Route exact path="/listCategoryQuestion/:ctgyId" element={<CategoryQuestionResult />} ></Route>
                 <Route exact path="/listSubCategoryQuestion/:ctgyId" element={<SubCategoryQuestionResult />} ></Route>
                 <Route exact path="/myQuestion" element={<MyQuestion />}></Route>
