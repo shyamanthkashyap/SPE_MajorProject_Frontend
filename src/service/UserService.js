@@ -28,6 +28,10 @@ class UserService{
         new Promise(resolve => setTimeout(resolve, 1000));
         return axios.get(USER_BASE_URL+`userProfile/${user.id}`,config);
     }
+
+    updatePoints(id){
+      return axios.get(USER_BASE_URL+`updatepoints/${id}`,config);
+    }
 }
 
 export default new UserService();

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import AnswerService from "../service/AnswerService";
-import AnswerPost from "./AnswerPost";
+import MyAnswerPost from "./MyAnswerPost";
 
 
 const MyAnswer = () => {
@@ -31,7 +31,7 @@ const MyAnswer = () => {
 				My Answers:
 			</blockquote>
 
-			{!loading && <AnswerPost answers={answers} />}
+			{!loading && <MyAnswerPost answers={answers} />}
 		</div>
 	);
 }

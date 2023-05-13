@@ -18,7 +18,7 @@ const Post = (props) => {
 					<div className="bg-white shadow overflow-hidden sm:rounded-lg">
 						<div className="px-4 py-5 sm:px-6">
 							<p className="max-w-2xl text-sm text-gray-500">
-								{question.user.username}
+								Posted by {question.user.username}
 							</p>
 							<Link
 								to={{ pathname: `/list/${question.questionId}` }}

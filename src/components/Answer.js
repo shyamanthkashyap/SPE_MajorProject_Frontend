@@ -40,7 +40,7 @@ const Answer = () => {
 		<div>
 			<NavBar />
 			{!loading && <Post questions={questions} />}
-            {!loading && <AnswerPost answers={answers}/>}
+            {!loading && <AnswerPost answers={answers} questions={questions}/>}
             {!loading && <NewAnswer questions={questions} />}
 		</div>
 	);
