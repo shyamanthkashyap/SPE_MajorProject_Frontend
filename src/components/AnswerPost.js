@@ -67,7 +67,7 @@ const AnswerPost = (props) => {
     <div className="container mx-auto px-4 sm:px-3 md:px-5 py-8 overflow-hidden">
       <ul className="space-y-8">
         {answers.map((answer) => (
-          <li className="text-sm leading-6 " key={answer.answerId}>
+          <li className="text-sm leading-6 " key={answer.answerId} data-testid="answer">
             <figure className="relative flex flex-col-reverse bg-gradient-to-r from-violet-50 to-violet-100 shadow-sm rounded-lg p-6 dark:bg-slate-800 dark:highlight-white/5">
               <div className="flex mt-2 justify-between">
                 <div className="mt-3 ml-3 text-slate-700 dark:text-slate-300 self-baseline">

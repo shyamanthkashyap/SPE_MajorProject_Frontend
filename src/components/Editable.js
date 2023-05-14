@@ -18,7 +18,7 @@ const Editable = ({ text, type, placeholder, children, ...props }) => {
 Note: For simplicity purpose, I removed all the classnames, you can check the repo for CSS styles
 */
 	return (
-		<div {...props}>
+		<div data-testid="editable-container" {...props}>
 			{isEditing ? (
 				<span
                     className="border-indigo-300 rounded text-lg p-0 w-full font-normal"
@@ -28,7 +28,7 @@ Note: For simplicity purpose, I removed all the classnames, you can check the re
 					{children}
 				</span>
 			) : (
-				<div className="bg-indigo-50 border-indigo-300 rounded text-lg p-0 w-full font-normal" onClick={() => setEditing(true)}>
+				<div data-testid="editable-input" className="bg-indigo-50 border-indigo-300 rounded text-lg p-0 w-full font-normal" onClick={() => setEditing(true)}>
 					<span>{text || placeholder || "Editable content"}</span>
 				</div>
 			)}
